@@ -4,17 +4,17 @@ import { ToDo } from './todo';
 
 export interface IToDoListProps {
     todos: IToDo[];
-    onToDoClick: any;
+    onTodoClick: any;
 }
 
-export const ToDoList: React.StatelessComponent<IToDoListProps> = ({ todos, onToDoClick }) => (
-   <ul>
-       {todos.map(todo =>
+export const ToDoList: React.StatelessComponent<IToDoListProps> = ({ todos, onTodoClick }) => (
+    <ul>
+        {todos.map((todo: IToDo) =>
             <ToDo
                 key={todo.id}
                 {...todo}
-                onClick={onToDoClick}
+                onClick={() => onTodoClick(todo.id)}
             />
-       )}
-   </ul>
-); 
+        )}
+    </ul>
+);
